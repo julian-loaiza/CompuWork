@@ -101,9 +101,11 @@ public class Main {
                         if (tipo.equalsIgnoreCase("Permanente")) {
                             float salarioBase = Float.parseFloat(salarioBaseField.getText());
                             empleados.add(EmpleadoFactory.crearEmpleado("permanente", id, nombre, edad, sexo, new Date(), "Seguro Médico", salarioBase, null, 0));
+                            JOptionPane.showMessageDialog(frame, "Empelado creado.");
                         } else if (tipo.equalsIgnoreCase("Temporal")) {
                             float tasaPorHora = Float.parseFloat(tasaPorHoraField.getText());
                             empleados.add(EmpleadoFactory.crearEmpleado("temporal", id, nombre, edad, sexo, new Date(), null, 0, new Date(), tasaPorHora));
+                            JOptionPane.showMessageDialog(frame, "Empelado creado.");
                         }
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(frame, "Error en los datos ingresados. Por favor, verifica los campos.");
@@ -163,6 +165,7 @@ public class Main {
                     displayArea.setText("No hay departamentos para mostrar.\n");
                 } else {
                     departamentos.forEach(departamento -> displayArea.append(departamento.getDetalles() + "\n"));
+                    empleados.forEach(empleado -> displayArea.append(empleado.getDetalles() + "\n"));
                 }
             }
         });
